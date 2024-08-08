@@ -1,0 +1,132 @@
+name: Build and upload themes
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+      - '[template]/**'
+      - 'template/**'
+      - 'base/**'
+      - 'basev2/**'
+      - '/*'
+
+jobs:
+  lint:
+    runs-on: gha-runners-smartweb
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cache nodes modules
+        id: cache-nodes-modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            pnpm-lock.yaml
+          key: node_modules-${{ hashFiles('package.json') }}
+      - name: Install node dev dependencies
+        run: |
+          pnpm install --no-frozen-lockfile
+      - name: Lint
+        run: pnpm run stylelint
+      - name: Pretty
+        run: pnpm run prettier
+  get-changed-directories:
+    needs: lint
+    runs-on: gha-runners-smartweb
+    outputs:
+      changed-directories: ${{ steps.set-output.outputs.changed-directories }}
+      environment: ${{ steps.get-build-push-environment.outputs.environment }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Get changed directories names
+        id: changed-directories
+        uses: tj-actions/changed-files@v44.5.6
+        with:
+          dir_names: 'true'
+          dir_names_exclude_current_dir: 'true'
+          dir_names_max_depth: '1'
+          files_ignore: |
+            .github/**
+            [template]/**
+            template/**
+            base/**
+            basev2/**
+      - name: Set output
+        id: set-output
+        run: |
+          changed_dirs=$(printf "%s" "${{ steps.changed-directories.outputs.all_changed_files }}" | jq -R -s -c 'split(" ")')
+          echo "changed-directories=$changed_dirs" >> "$GITHUB_OUTPUT"
+      - name: Get build push environment
+        id: get-build-push-environment
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          if [[ "$COMMIT_MESSAGE" == *"[quick]"* ]]; then
+            echo "environment=build-push-quick" >> "$GITHUB_OUTPUT"
+          else
+            echo "environment=build-push" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Summary
+        id: summary
+        run: |
+          for dir in ${{ steps.changed-directories.outputs.all_changed_files }}; do
+            vhost=$(jq -r '.homepage' $dir/package.json | cut -c 9-)
+            echo "Theme in directory $dir will be uploaded to $vhost" >> summary.txt
+          done
+          cat summary.txt
+          echo "echo summary.txt content to steps.summary.outputs.summary"
+          echo "summary<<EOF" >> "$GITHUB_OUTPUT"
+          cat summary.txt >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+      - name: Send summary to Mattermost
+        if: ${{ !env.ACT }} # do not run locally
+        uses: IMIO/gha/mattermost-notify@v3.8
+        with:
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.SMARTWEB_MATTERMOST_WEBHOOK_URL }}
+          MESSAGE: |
+            A build has been triggered by [${{ github.actor }}](https://github.com/${{ github.actor }}) for the following themes:
+            ${{ steps.summary.outputs.summary }}
+            [Click here to review the changes and eventually deploy to instances]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
+  build-push:
+    environment: ${{ needs.get-changed-directories.outputs.environment }}
+    needs: get-changed-directories
+    runs-on: gha-runners-smartweb
+    strategy:
+      matrix:
+        directory: ${{ fromJson(needs.get-changed-directories.outputs.changed-directories) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cache nodes modules
+        id: cache-nodes-modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            pnpm-lock.yaml
+          key: node_modules-${{ hashFiles('package.json') }}
+      - name: Get vhost and instance url
+        run: |
+          plone_url=$(jq -r '.homepage' ${{ matrix.directory }}/package.json)
+          vhost=$(echo $(jq -r '.homepage' ${{ matrix.directory }}/package.json) | cut -c 9-)
+          echo "vhost=$vhost" >> $GITHUB_ENV
+          echo "plone_url=$plone_url" >> $GITHUB_ENV
+      - name: Build push theme to plone site
+        uses: IMIO/gha/plone-theme-build-push-notify@v3.8
+        with:
+          THEME_PATH: ${{ matrix.directory }}
+          PLONE_URL: ${{ env.plone_url }}
+          PLONE_USERNAME: ${{ secrets.PLONE_USER }}
+          PLONE_PASSWORD: ${{ secrets.PLONE_PASSWORD }}
+      - name: Purge cache
+        if: ${{ !env.ACT }} # do not run locally
+        uses: IMIO/gha/rundeck-notify@v3.8
+        with:
+          RUNDECK_URL: ${{ secrets.RUNDECK_URL }}
+          RUNDECK_TOKEN: ${{ secrets.SMARTWEB_RUNDECK_TOKEN }}
+          RUNDECK_JOB_ID: ${{ vars.RUNDECK_JOB_ID }}
+          RUNDECK_PARAMETERS: -F "option.vhost=${{ env.vhost }}"
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.SMARTWEB_MATTERMOST_WEBHOOK_URL }}
