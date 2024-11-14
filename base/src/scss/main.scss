@@ -1,4 +1,8 @@
 //// VARIABLES
+
 $roboto-base-path: "@theme/assets/fonts/";
 // Plone Barceloneta Styling & components
-@import "@plone/plonetheme-barceloneta-base/scss/main";
+@import "./variables";
+@import "@plone/plonetheme-barceloneta-base/scss/barceloneta";
+@import "./sitenav";
+@import "./mosaic/existingcontent";

@@ -1,41 +1,70 @@
 <!doctype html>
-<html>
+<html class="h-100">
 
 <head>
-  <title>Library base Theme</title>
-  <link rel="shortcut icon" type="image/x-icon"
-        href="icons/barceloneta-favicon.ico" />
-  <link rel="apple-touch-icon"
-        href="icons/barceloneta-apple-touch-icon.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144"
-        href="icons/barceloneta-apple-touch-icon-144x144-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114"
-        href="icons/barceloneta-apple-touch-icon-114x114-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72"
-        href="icons/barceloneta-apple-touch-icon-72x72-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="57x57"
-        href="icons/barceloneta-apple-touch-icon-57x57-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed"
-        href="icons/barceloneta-apple-touch-icon-precomposed.png" />
+  <title>Plone Theme</title>
+  <link href="++theme++barceloneta/barceloneta-apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="++theme++barceloneta/barceloneta-apple-touch-icon-144x144-precomposed.png"
+    rel="apple-touch-icon-precomposed" sizes="144x144" />
+  <link href="++theme++barceloneta/barceloneta-apple-touch-icon-114x114-precomposed.png"
+    rel="apple-touch-icon-precomposed" sizes="114x114" />
+  <link href="++theme++barceloneta/barceloneta-apple-touch-icon-72x72-precomposed.png"
+    rel="apple-touch-icon-precomposed" sizes="72x72" />
+  <link href="++theme++barceloneta/barceloneta-apple-touch-icon-57x57-precomposed.png"
+    rel="apple-touch-icon-precomposed" sizes="57x57" />
+  <link href="++theme++barceloneta/barceloneta-apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" />
 </head>
 
-<body class="h-100">
+<body class="d-flex flex-column h-100">
   <section id="portal-toolbar">
   </section>
-  
-  <div class="outer-wrapper">
-    <header id="content-header">
 
-      <div class="container">
-        <div id="portal-top" class="mb-3 d-flex justify-content-end">
+  <div class="outer-wrapper flex-shrink-0">
+    <div class="header-bg">
+      <header class="container d-flex pt-3 flex-column justify-content-between align-items-lg-start flex-lg-row"
+        id="content-header">
+
+        <div class="mb-3 d-flex justify-content-end" id="portal-top">
         </div>
+
+        <div class="pb-3 d-flex justify-content-between align-items-center order-lg-first w-auto"
+          id="portal-logo-wrapper">
+          <div class="order-lg-0" id="portal-logo"></div>
+          <div class="navbar navbar-expand-lg">
+            <button class="navbar-toggler border-secondary" aria-controls="offcanvasNavbar" type="button"
+              data-bs-target="#offcanvasNavbar" data-bs-toggle="offcanvas">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+
+      </header>
+    </div>
+
+    <div id="mainnavigation-wrapper">
+      <div id="mainnavigation">
+        <nav class="navbar navbar-expand-lg navbar-barceloneta pat-navigationmarker" id="portal-globalnav-wrapper">
+          <div class="container">
+            <div class="offcanvas offcanvas-end" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+              tabindex="-1">
+              <div class="offcanvas-header justify-content-end">
+                <button class="btn-close btn-close-white text-reset" aria-label="Close" type="button"
+                  data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body align-items-center">
+                <ul class="navbar-nav me-auto" id="portal-globalnav">
+                </ul>
+                <div id="portal-searchbox">
+                  <!-- searchbutton class is set in rules.xml -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
-      
-      <div class="mask-menu"></div>
+    </div>
 
-    </header>
-
-    <div id="hero" class="principal">
+    <div class="principal" id="hero">
       <div class="container">
         <div class="gigantic">
         </div>
@@ -43,35 +72,44 @@
     </div>
 
     <div id="above-content-wrapper">
-        <div id="above-content">
-        </div>
+      <div id="above-content">
+      </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <aside id="global_statusmessage" class="col-12"></aside>
+        <aside class="col-12" id="global_statusmessage"></aside>
       </div>
-      <main id="main-container" class="row">
+      <main class="row" id="main-container">
         <section id="portal-column-content">
         </section>
         <aside id="portal-column-one">
         </aside>
         <aside id="portal-column-two" role="complementary">
         </aside>
-      </main><!--/row-->
+      </main>
+      <!--/row-->
     </div>
     <!--/container-->
-  </div> 
-  
+
+  </div>
   <!--/outer-wrapper -->
-  <footer id="portal-footer-wrapper">
-      <div class="container" id="portal-footer">
-        <div class="doormat row"></div>
-        <div class="copyright row"><div class="col-12"></div></div>
-        <div class="colophon row"><div class="col-12"></div></div>
-        <div class="site-actions row"><div class="col-12"></div></div>
+
+  <footer class="mt-auto" id="portal-footer-wrapper">
+    <div class="container" id="portal-footer">
+      <div class="doormat row"></div>
+      <div class="copyright row">
+        <div class="col-12"></div>
       </div>
+      <div class="colophon row">
+        <div class="col-12"></div>
+      </div>
+      <div class="site-actions row">
+        <div class="col-12"></div>
+      </div>
+    </div>
   </footer>
+
 </body>
 
 </html>
