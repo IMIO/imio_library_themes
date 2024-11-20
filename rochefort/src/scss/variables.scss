@@ -1,0 +1,38 @@
+$primary: #4e5859;
+
+//**// Header //**//
+
+$logo-max-width: 200px;
+$header-background: $primary;
+// $navbar-barceloneta-background: red;
+
+// .navbar-barceloneta {
+//   --bs-navbar-background: red;
+// }
+//**// Fonts //**//
+$text-color: #4d4d4d;
+$title-color: $primary !default;
+$description-color: $text-color !default;
+//**// Existingcontent //**//
+
+$existingcontent-tile-gird: 4fr;
+$existingcontent-tile-item-background: #fafafa;
+$existingcontent-tile-item-border: 1px solid #ddd;
+$existingcontent-tile-item-title-color: $primary;
+$existingcontent-tile-item-title-weight: 500;
+
+//**// Portlet Nav //**//
+
+$portlenav-color: #1c1c1c;
+$portlenav-bg: #fff;
+$portlenav-hover-bg: rgba($primary, 0.1);
+$portlenav-hover-color: $primary;
+$portletnav-border-color: #ddd;
+
+$portlenav-firslevel-color: #1c1c1c;
+$portlenav-firslevel-bg: #fff;
+$portlenav-firslevel-hover-bg: rgba($primary, 0.1);
+$portlenav-firslevel-hover-color: $primary;
+
+$portlenav-arrow-color: transparent;
+$portlenav-arrow-hover-color: $primary;
