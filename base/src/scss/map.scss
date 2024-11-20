@@ -1,0 +1,148 @@
+body.template-facetednavigation_view .eea-preview-items {
+  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-direction: row-reverse;
+
+  .button-map-content {
+    width: 100%;
+    text-align: right;
+  }
+
+  .button-map {
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    background: none;
+    text-shadow: none;
+    padding: 0;
+    margin-left: auto;
+
+    &::after {
+      content: "\F341";
+      font-family: bootstrap-icons;
+      font-size: 2rem;
+      padding-left: 0.5rem;
+    }
+
+    .show-map::after {
+      content: "\F340";
+      font-family: bootstrap-icons;
+      font-size: 2rem;
+      padding-left: 0.5rem;
+      opacity: 30%;
+    }
+  }
+
+  #faceted-map {
+    width: 52% !important;
+    display: inline-block !important;
+    position: sticky !important;
+    height: 90vh !important;
+    top: 5vh !important;
+
+    &.hidden {
+      display: none !important;
+
+      @media screen and (min-width: 1200px) {
+        & ~ #faceted-results {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+
+          .items-content {
+            max-height: 180px;
+          }
+
+          .faceted-map-item {
+            width: 48%;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      width: 100% !important;
+      margin: 0 auto;
+      position: relative !important;
+      top: 0 !important;
+      height: 30vh !important;
+      margin-bottom: 2rem;
+    }
+  }
+
+  #faceted-results {
+    width: 46%;
+    display: inline-block;
+    margin-right: auto;
+    margin-right: 20px;
+
+    .geolocated {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23545454;%7D%3C/style%3E%3C/defs%3E%3Cg id='Calque_2' data-name='Calque 2'%3E%3Cg id='Calque_1-2' data-name='Calque 1'%3E%3Cpath class='cls-1' d='M172.27,501.67C27,291,0,269.41,0,192,0,86,86,0,192,0S384,86,384,192c0,77.41-27,99-172.27,309.67a24,24,0,0,1-39.46,0ZM192,272a80,80,0,1,0-80-80A80,80,0,0,0,192,272Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: 7px;
+        top: 10px;
+      }
+    }
+
+    .not-geolocated {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 472.89 586.7'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23545454;%7D.cls-2%7Bfill:%23fff;%7D%3C/style%3E%3C/defs%3E%3Cg id='Calque_2' data-name='Calque 2'%3E%3Cg id='Calque_1-2' data-name='Calque 1'%3E%3Cpath class='cls-1' d='M223.32,548.22C78,337.58,51.05,316,51.05,238.55c0-106,86-192,192-192s192,86,192,192c0,77.41-27,99-172.26,309.67a24,24,0,0,1-39.47,0Z'/%3E%3Cpath class='cls-1' d='M403.33,571.7a24.13,24.13,0,0,1-19.21-9.6L19.78,76.32a24,24,0,0,1,4.81-33.6L55.14,19.8A23.83,23.83,0,0,1,69.53,15a24.13,24.13,0,0,1,19.21,9.6L453.08,510.38a24,24,0,0,1-4.8,33.6L417.72,566.9A23.81,23.81,0,0,1,403.33,571.7Z'/%3E%3Cpath class='cls-2' d='M69.53,30a9,9,0,0,1,7.21,3.6L441.08,519.38a9,9,0,0,1-1.8,12.6L408.72,554.9a9,9,0,0,1-12.6-1.8L31.79,67.32a9,9,0,0,1,1.8-12.6L64.14,31.8A9,9,0,0,1,69.53,30m0-30h0A38.72,38.72,0,0,0,46.14,7.8L15.59,30.72a39,39,0,0,0-7.81,54.6L372.12,571.1a39.19,39.19,0,0,0,31.21,15.6,38.7,38.7,0,0,0,23.39-7.8L457.28,556a39,39,0,0,0,7.8-54.6L100.74,15.6A39.19,39.19,0,0,0,69.54,0Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: 7px;
+        top: 10px;
+        opacity: 40%;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      body.template-facetednavigation_view .eea-preview-items #faceted-results {
+        width: 100%;
+        display: inline-block;
+        margin-right: auto;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .faceted-map-item {
+    margin-bottom: 50px;
+    padding: 20px;
+    border: solid 2px#f0f0f0;
+
+    a .items-content {
+      display: flex;
+
+      .image img {
+        display: block;
+        max-height: 222px;
+      }
+
+      .text {
+        max-height: 200px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        padding: 0 1.5rem;
+      }
+    }
+  }
+}

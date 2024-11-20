@@ -1,0 +1,52 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable-next-line CssSyntaxError */
+/* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+
+.entries {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, $existingcontent-tile-gird)
+  );
+  container-type: inline-size;
+  margin-bottom: 2rem;
+
+  article {
+    display: flex;
+    background: $existingcontent-tile-item-background;
+    border: $existingcontent-tile-item-border;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    grid-column: span 1;
+
+    .col {
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+
+      a {
+        text-decoration: none;
+        font-weight: $existingcontent-tile-item-title-weight;
+        color: $existingcontent-tile-item-title-color;
+      }
+    }
+
+    .text-end {
+      width: 100%;
+      flex: inherit;
+      order: -1;
+
+      a {
+        width: 100%;
+        display: block;
+        text-decoration: none;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,11 @@
 //// VARIABLES
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
 $roboto-base-path: "@theme/assets/fonts/";
 // Plone Barceloneta Styling & components
 @import "./variables";
 @import "@plone/plonetheme-barceloneta-base/scss/barceloneta";
 @import "./sitenav";
-@import "./mosaic/existingcontent";
+@import "./existingcontent";
+@import "./portletnav";
+@import "./font";
+@import "./map";

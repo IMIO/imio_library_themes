@@ -1,0 +1,66 @@
+.portletNavigationTree {
+  .navTreeFolderish {
+    svg {
+      display: none;
+    }
+  }
+
+  .navTree {
+    .navTreeItem {
+      a {
+        color: $portlenav-color;
+      }
+    }
+  }
+}
+
+///
+
+//*// PORTLETS //*//
+.portletNavigationTree .card-body .navTreeCurrentNode > a {
+  background: $portlenav-firslevel-bg !important;
+
+  &:hover {
+    background: $portlenav-firslevel-hover-bg !important;
+    color: $portlenav-firslevel-hover-color;
+  }
+}
+//*// Navigation
+.portletNavigationTree {
+  border-color: $portletnav-border-color;
+
+  .card-body {
+    ul {
+      li {
+        a {
+          background: $portlenav-bg;
+          color: $portlenav-color;
+          text-decoration: none;
+
+          &:hover {
+            background: $portlenav-hover-bg;
+            color: $portlenav-hover-color;
+          }
+
+          &:hover::before {
+            color: $plone-portlet-list-bullet;
+          }
+
+          &:hover::after {
+            content: "\F135";
+            font-family: bootstrap-icons;
+            color: $portlenav-arrow-hover-color;
+          }
+        }
+      }
+    }
+
+    .navTreeCurrentNode > a {
+      &::after {
+        content: "\F135";
+        font-family: bootstrap-icons;
+        color: $portlenav-arrow-color;
+      }
+    }
+  }
+}
