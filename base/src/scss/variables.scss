@@ -1,4 +1,4 @@
-$primary: #009bd6 !default;
+$primary: #013b61 !default;
 
 //**// Header //**//
 
@@ -16,7 +16,7 @@ $title-color: $primary !default;
 $description-color: darken($text-color, 50%) !default;
 //**// Existingcontent //**//
 
-$existingcontent-tile-gird: 4fr !default;
+$existingcontent-tile-gird: 24%;
 $existingcontent-tile-item-background: #fafafa !default;
 $existingcontent-tile-item-border: 1px solid #ddd !default;
 $existingcontent-tile-item-title-color: $primary !default;
