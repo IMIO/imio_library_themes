@@ -1,9 +1,9 @@
-$primary: #013b61 !default;
+$primary: #276577;
 
 //**// Header //**//
 
 $logo-max-width: 200px !default;
-$header-background: #fff !default;
+$header-background: $primary;
 // $navbar-barceloneta-background: red!default;
 
 // .navbar-barceloneta {
