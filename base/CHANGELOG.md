@@ -1,5 +1,17 @@
 
 
+# 1.0.0 (2024-12-16)
+
+
+### Bug Fixes
+
+* couvin url ([eb4c521](https://github.com/IMIO/imio_library_themes/commit/eb4c52139794a3c21d73f0334d8cfdd53e76d3a8))
+
+
+### Features
+
+* **ci/cd:** add gha to build and deploy theme ([11cc723](https://github.com/IMIO/imio_library_themes/commit/11cc7233946db83d1f38b51bf253000da99184dd))
+
 ## [0.1.2](https://github.com/IMIO/imio_smartweb_themes/compare/v0.1.0...v0.1.2) (2024-08-05)
 
 
