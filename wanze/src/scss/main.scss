@@ -5,3 +5,17 @@ $enable-roboto-webfont: false;
 // Plone Barceloneta Styling & components
 @import "./variables";
 @import "../../../base/src/scss/main";
+
+.navbar-nav li a:focus,
+.navbar-nav li a:hover {
+  background-color: #e20613;
+}
+
+a {
+  color: #e20613;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #e20613;
+}
