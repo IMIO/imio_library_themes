@@ -12,7 +12,7 @@
       "url": "https://imio.be"
     }
   ],
-  "homepage": "https://bibiotheca.couvin.be",
+  "homepage": "https://bibliotheca.couvin.be",
   "keywords": [
     "imio",
     "plone",
@@ -29,6 +29,7 @@
     "release": "release-it"
   },
   "devDependencies": {
+    "@imiobe/plonetheme-library-base": "1.1.0",
     "@plone/plonetheme-barceloneta-base": "3.2.0-alpha.5",
     "@popperjs/core": "^2.11.6"
   }
