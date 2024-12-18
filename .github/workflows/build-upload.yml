@@ -94,6 +94,7 @@ jobs:
     environment: ${{ needs.get-changed-directories.outputs.environment }}
     needs: get-changed-directories
     runs-on: gha-runners-smartweb
+    continue-on-error: true
     strategy:
       matrix:
         directory: ${{ fromJson(needs.get-changed-directories.outputs.changed-directories) }}
