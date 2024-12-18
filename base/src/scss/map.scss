@@ -182,3 +182,7 @@ nav.d-flex.justify-content-center {
 .select2-results .select2-disabled {
   display: none;
 }
+
+.select2-container-multi .select2-choices .select2-search-field input {
+  height: 26px;
+}
