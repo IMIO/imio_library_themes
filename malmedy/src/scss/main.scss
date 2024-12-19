@@ -4,4 +4,4 @@ $enable-roboto-webfont: false;
 
 // Plone Barceloneta Styling & components
 @import "./variables";
-@import "../../../base/src/scss/main";
+@import "@imiobe/plonetheme-library-base/src/scss/main";
