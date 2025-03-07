@@ -10,3 +10,15 @@ $roboto-base-path: "@theme/assets/fonts/";
 @import "./font";
 @import "./map";
 @import "./footer";
+
+.portaltype-patrimoine {
+  section#section-leadimage {
+    display: none;
+  }
+}
+
+a.contenttype-document,
+a.contenttype-folder {
+  font-size: 20px;
+  color: $primary;
+}
