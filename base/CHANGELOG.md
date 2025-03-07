@@ -1,5 +1,13 @@
 
 
+# [1.2.0](https://github.com/IMIO/imio_library_themes/compare/v1.1.0...v1.2.0) (2025-03-07)
+
+
+### Features
+
+* **ci/cd:** allow one job to fail ([2d76492](https://github.com/IMIO/imio_library_themes/commit/2d76492b760ad94e7702a6481543a1dd4e0cf32b))
+* update themes to upload new version ([faca002](https://github.com/IMIO/imio_library_themes/commit/faca0024c4cfcbd4877f007b49c7e078964e4f93))
+
 # [1.1.0](https://github.com/IMIO/imio_library_themes/compare/v1.0.0...v1.1.0) (2024-12-17)
 
 # 1.0.0 (2024-12-16)
