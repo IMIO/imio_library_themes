@@ -5,3 +5,19 @@ $enable-roboto-webfont: false;
 // Plone Barceloneta Styling & components
 @import "./variables";
 @import "@imiobe/plonetheme-library-base/src/scss/main";
+
+.bannerImage {
+  &::before {
+    content: "";
+    background-image: url("../../assets/image.png");
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 34px;
+    width: 100%;
+    height: 100%;
+    max-width: 390px;
+  }
+}
