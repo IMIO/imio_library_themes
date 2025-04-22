@@ -1,5 +1,7 @@
 
 
+## [1.2.1](https://github.com/IMIO/imio_library_themes/compare/v1.2.0...v1.2.1) (2025-04-22)
+
 # [1.2.0](https://github.com/IMIO/imio_library_themes/compare/v1.1.0...v1.2.0) (2025-03-07)
 
 
