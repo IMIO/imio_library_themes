@@ -15,6 +15,14 @@ $roboto-base-path: "@theme/assets/fonts/";
   section#section-leadimage {
     display: none;
   }
+
+  h2 {
+    .widget {
+      font-size: initial;
+      color: #4d4d4d;
+      margin-top: 5px;
+    }
+  }
 }
 
 a.contenttype-document,
