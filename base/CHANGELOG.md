@@ -1,5 +1,14 @@
 
 
+## [1.2.2](https://github.com/IMIO/imio_library_themes/compare/v1.2.1...v1.2.2) (2025-07-02)
+
+
+### Features
+
+* base theme for assesse and orpjauche [quick] ([c98ce89](https://github.com/IMIO/imio_library_themes/commit/c98ce896e95a0ba92a0b80bfc2d504bb26cae395))
+* eghezee pepinster [quick] ([31e4a73](https://github.com/IMIO/imio_library_themes/commit/31e4a736f20074d0586d2dc288eb097f3418741f))
+* tellin base theme [quick] ([fb18939](https://github.com/IMIO/imio_library_themes/commit/fb18939cefaf3543cfaecf79d02a64026a09843c))
+
 ## [1.2.1](https://github.com/IMIO/imio_library_themes/compare/v1.2.0...v1.2.1) (2025-04-22)
 
 # [1.2.0](https://github.com/IMIO/imio_library_themes/compare/v1.1.0...v1.2.0) (2025-03-07)
