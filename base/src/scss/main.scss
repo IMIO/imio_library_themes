@@ -25,8 +25,8 @@ $roboto-base-path: "@theme/assets/fonts/";
   }
 }
 
-a.contenttype-document,
-a.contenttype-folder {
+#content-core a.contenttype-document:not(.nav-link),
+#content-core a.contenttype-folder:not(.nav-link) {
   font-size: 20px;
   color: $primary;
 }
