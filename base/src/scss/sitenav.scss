@@ -29,12 +29,11 @@
   border-radius: 5px;
   text-decoration: none;
   font-size: 14px;
-  
+
   &:hover,
   &:focus {
     background: $login-btn-color-hover;
     text-decoration: underline;
-
   }
 }
 
