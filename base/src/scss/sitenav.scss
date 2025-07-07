@@ -23,6 +23,20 @@
   font-size: 14px;
 }
 
+#personaltools-login {
+  background: $login-btn-color;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  &:hover,
+  &:focus {
+    background: $login-btn-color-hover;
+    text-decoration: underline;
+
+  }
+}
+
 .nav-item .bi-link-45deg {
   display: none;
 }
