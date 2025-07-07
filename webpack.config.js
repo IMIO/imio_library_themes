@@ -195,42 +195,6 @@ module.exports = (env, argv) => {
         new TerserPlugin({
           parallel: true,
         }),
-        new ImageMinimizerPlugin({
-          minimizer: {
-            implementation: ImageMinimizerPlugin.imageminMinify,
-            options: {
-              // Lossless optimization with custom option
-              // Feel free to experiment with options for better result for you
-              plugins: [
-                ["gifsicle", { interlaced: true }],
-                ["jpegtran", { progressive: true }],
-                ["optipng", { optimizationLevel: 5 }],
-                // Svgo configuration here https://github.com/svg/svgo#configuration
-                [
-                  "svgo",
-                  {
-                    plugins: [
-                      {
-                        name: "preset-default",
-                        params: {
-                          overrides: {
-                            // customize default plugin options
-                            inlineStyles: {
-                              onlyMatchedOnce: false,
-                            },
-
-                            // or disable plugins
-                            removeDoctype: false,
-                          },
-                        },
-                      },
-                    ],
-                  },
-                ],
-              ],
-            },
-          },
-        }),
       ],
     },
     devServer: {
