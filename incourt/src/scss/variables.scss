@@ -1,0 +1,42 @@
+$primary: #1d0340;
+
+//**// Header //**//
+
+$logo-max-width: 200px !default;
+$header-background: #fff !default;
+// $navbar-barceloneta-background: red!default;
+
+// .navbar-barceloneta {
+//   --bs-navbar-background: red!default;
+// }
+
+//**// Fonts //**//
+$text-color: #4d4d4d;
+$title-color: $primary !default;
+$description-color: darken($text-color, 50%) !default;
+//**// Existingcontent //**//
+
+$existingcontent-tile-gird: 4fr !default;
+$existingcontent-tile-item-background: #fafafa !default;
+$existingcontent-tile-item-border: 1px solid #ddd !default;
+$existingcontent-tile-item-title-color: $primary !default;
+$existingcontent-tile-item-title-weight: 500 !default;
+
+//**// Portlet Nav //**//
+
+$portlenav-color: #1c1c1c !default;
+$portlenav-bg: #fff !default;
+$portlenav-hover-bg: rgba($primary, 0.1) !default;
+$portlenav-hover-color: $primary !default;
+$portletnav-border-color: #ddd !default;
+
+$portlenav-firslevel-color: #1c1c1c !default;
+$portlenav-firslevel-bg: #fff !default;
+$portlenav-firslevel-hover-bg: rgba($primary, 0.1) !default;
+$portlenav-firslevel-hover-color: $primary !default;
+
+$portlenav-arrow-color: transparent !default;
+$portlenav-arrow-hover-color: $primary !default;
+
+//**// Footer //**//
+$footer-color: #fff !default;
